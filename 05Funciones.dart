@@ -9,7 +9,8 @@ String greetEveryone() => 'Hola a todos'; //funcion lambda o de flecha
 
 int addTwoNumbers(int a, int b){
   return a+b; 
-} // funcion normal 
+} // funcion normal - parametros obligatorios y posicionales
+
 
 //convierto funcion normal a lambda 
 int addTwoNumbers2(int a, int b)=> a+b;

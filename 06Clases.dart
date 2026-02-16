@@ -18,4 +18,9 @@ class Hero{
 
   //Constructor corto
   Hero(this.name, this.power);
+
+  @override // Cambia el comportamiento nativo de algo 
+  String toString(){
+    return '$name - $power';
+  }
 }

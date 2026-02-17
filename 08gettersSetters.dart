@@ -10,7 +10,8 @@ class Square{
   double _side; // Guion bajo indica privado
 
   Square({required double side})
-  : _side = side;  //Armo constructor 
+  : assert (side >= 0, 'Mensaje de error: Side must be >=0'), // assert para que el side siempre sea mayor a 0 
+   _side = side;  //Armo constructor 
 
   double calculateArea(){
     return _side * _side; 
@@ -28,3 +29,5 @@ class Square{
 
 
 } 
+
+//Asersiones - Reglas para que en desarrollo se cumplan normas establecidas

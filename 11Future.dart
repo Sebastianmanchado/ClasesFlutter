@@ -3,9 +3,15 @@ Puede fallar -> Manejo excepción  */
 
 void main() async{
   print('Inicio del programa');
-  final value = await httpGet('https://seiboflutter.com/');
-  
-  print(value);
+
+  try{
+    final value = await httpGet('https://seiboflutter.com/');
+    print(value);
+    
+  } catch(err){
+    print('Tenemos un error :( -> $err');
+  }
+
   print('Fin del programa');
 }
 
@@ -14,5 +20,7 @@ void main() async{
 Future<String> httpGet(String url) async {
 
   await Future.delayed(const Duration(seconds: 10));/*tiempo de espera*/
-  return 'Respuesta de la petición HTTP'; /*Funcion a ejecutar*/
+
+  throw 'Error en la peticion'; 
+  //return 'Respuesta de la petición HTTP'; /*Funcion a ejecutar*/
 }

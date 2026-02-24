@@ -1,20 +1,18 @@
 /* Un future es la promesa de que pronto habrá un valor para ser usado
 Puede fallar -> Manejo excepción  */
 
-void main(){
+void main() async{
   print('Inicio del programa');
-  httpGet('https://seiboflutter.com/').then((value){
-    print(value);
-  } ).catchError((err){
-    print('Error: $err');
-  });
+  final value = await httpGet('https://seiboflutter.com/');
+  
+  print(value);
   print('Fin del programa');
 }
 
-Future<String> httpGet(String url){
-  return Future.delayed(const Duration(seconds: 10)/*tiempo de espera*/, (){
-    //return 'Respuesta de la petición HTTP'; /*Funcion a ejecutar*/
+//Con async Siempre el return es un future 
 
-    throw 'Error en la petición http';
-  });
+Future<String> httpGet(String url) async {
+
+  await Future.delayed(const Duration(seconds: 10));/*tiempo de espera*/
+  return 'Respuesta de la petición HTTP'; /*Funcion a ejecutar*/
 }

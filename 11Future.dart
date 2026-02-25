@@ -8,6 +8,8 @@ void main() async{
     final value = await httpGet('https://seiboflutter.com/');
     print('Exito $value');
     
+  } on Exception  { //on me permite reaccionar a cada tipo de ocurrencia 
+    print('Tengo una excepción');
   } catch(err){ //si falla hace esto
     print('Tenemos un error :( -> $err');
   } finally { // y finalmente esto 
@@ -22,7 +24,7 @@ void main() async{
 Future<String> httpGet(String url) async {
 
   await Future.delayed(const Duration(seconds: 10));/*tiempo de espera*/
-  throw Exception('No hay parametros en el url'); 
- // throw 'Error en la peticion'; 
-  //return 'Respuesta de la petición HTTP'; /*Funcion a ejecutar*/
+  //throw Exception('No hay parametros en el url'); 
+  throw 'Error en la peticion'; 
+  //return 'Respuesta de la petición HTTP'; /*Funcion a ejecutar*/S
 }
